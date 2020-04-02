@@ -1,12 +1,18 @@
-Pod::Spec.new do |spec|
-  spec.name         = 'react-native-qrcode-local-image'
-  spec.version      = '1.0.4'
-  spec.license      = { :type => 'MIT' }
-  spec.homepage     = 'https://github.com/remobile/react-native-qrcode-local-image'
-  spec.authors      = { 'YunJiang Fang' => '42550564@qq.com' }
-  spec.source       = { :git => 'https://github.com/remobile/react-native-qrcode-local-image.git' }
-  spec.source_files = 'ios/RCTQRCodeLocalImage/*.{h,m}'
-  spec.summary = "this is a paaaackage"
+require 'json'
 
-  spec.dependency 'React'
+package = JSON.parse(File.read(File.join(__dir__, 'package.json')))
+
+Pod::Spec.new do |s|
+  s.name         = "react-native-qrcode-local-image"
+  s.version      = package['version']
+  s.summary      = package['description']
+  s.license      = package['license']
+
+  s.authors      = package['author']
+  s.homepage     = package['homepage']
+  s.platform     = :ios, "9.0"
+
+  s.source       = { :git => "https://github.com/pizzaliu/react-native-qrcode-local-image.git" }
+  s.source_files = "ios/**/*.{h,m}"
+  s.dependency "React"
 end
