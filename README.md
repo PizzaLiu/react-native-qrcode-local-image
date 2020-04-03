@@ -1,20 +1,26 @@
 # React Native QRCodeLocalImage (remobile)
 A local qrcode image parse for react-native, support for ios and android
 
-## Installation
+## Installation Auto (iOS & Android)
 ```sh
-npm install @remobile/react-native-qrcode-local-image --save
+npm install https://github.com/PizzaLiu/react-native-qrcode-local-image --save
+
+# RN >= 0.60
+cd ios && pod install
+
+# RN < 0.60
+react-native link react-native-qrcode-local-image
 ```
-### Installation (iOS)
+### Installation Manually (iOS)
 * Drag RCTQRCodeLocalImage.xcodeproj to your project on Xcode.
 * Click on your main project file (the one that represents the .xcodeproj) select Build Phases and drag libRCTQRCodeLocalImage.a from the Products folder inside the RCTQRCodeLocalImage.xcodeproj.
 * Look for Header Search Paths and make sure it contains $(SRCROOT)/../../../react-native/React as recursive.
 
-### Installation (Android)
+### Installation Manually (Android)
 ```gradle
 ...
 include ':react-native-qrcode-local-image'
-project(':react-native-qrcode-local-image').projectDir = new File(settingsDir, '../node_modules/@remobile/react-native-qrcode-local-image/android')
+project(':react-native-qrcode-local-image').projectDir = new File(settingsDir, '../node_modules/react-native-qrcode-local-image/android')
 ```
 
 * In `android/app/build.gradle`
@@ -59,7 +65,7 @@ var {
 } = ReactNative;
 
 var Button = require('@remobile/react-native-simple-button');
-var QRCode = require('@remobile/react-native-qrcode-local-image');
+var QRCode = require('react-native-qrcode-local-image');
 
 
 module.exports = React.createClass({
